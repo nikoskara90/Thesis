@@ -1,4 +1,4 @@
-Author Style Change Detection
+# Author Style Change Detection
 
 ### Paragraph-Level Author Change Detection Using LUAR and SBERT
 
@@ -95,52 +95,6 @@ The repository contains SBERT implementations for:
 * Cosine-similarity-based detection
 * Concatenation followed by a classification head
 
----
-
-## Repository Structure
-
-The project is organized into several main components:
-
-> **The complete visual representation of the repository structure will be added here.**
-
-### `src/datasets/`
-
-Contains the dataset implementations used in the thesis experiments:
-
-* `pan21_dataset.py`
-* `pan22_dataset.py`
-* `pan23_dataset.py`
-* `pan24_dataset.py`
-* `multidomain_dataset.py`
-* `utils.py`
-
-### `src/models/`
-
-Contains the model, transformer, training, attention, and classification implementations.
-
-The directory includes the implementations for all LUAR and SBERT configurations evaluated in the thesis.
-
-### `src/evaluation/`
-
-Contains the evaluation helper and the final experimental results:
-
-* `results_luar.xlsx`
-* `results_sbert.xlsx`
-* `results_total.xlsx`
-
-### `src/utilities/`
-
-Contains supporting utilities used by the training and evaluation pipeline.
-
-### Main scripts
-
-* `main.py` — main entry point for training/testing the different model configurations
-* `arguments.py` — command-line and experiment configuration
-* `evaluator.py` — evaluation of generated solution files
-* `fabricator.py` — auxiliary solution-file processing
-
----
-
 ## Evaluation
 
 The primary metric used throughout the thesis is the **F1-score**.
@@ -164,47 +118,6 @@ src/evaluation/results_total.xlsx
 These files contain the results obtained during the experiments conducted for the thesis.
 
 ---
-
-## Experimental Analysis
-
-The experiments investigate the impact of:
-
-### LUAR vs. SBERT
-
-The two representation approaches are compared to determine how effectively they capture information relevant to author changes.
-
-### Frozen vs. Fine-Tuned Representations
-
-The experiments compare using pretrained representations without modification against allowing the representation model to adapt to the author-change detection task.
-
-### Cosine Similarity vs. Classification Head
-
-Two different approaches are evaluated for determining whether an author transition has occurred:
-
-1. **Cosine similarity** between paragraph representations.
-2. **Concatenation of representations followed by a classification head.**
-
-This allows the thesis to examine both similarity-based and learned classification approaches.
-
----
-
-## Results
-
-The experimental results are included in the repository as Excel spreadsheets.
-
-The main conclusions of the experiments indicate that model performance depends on the characteristics of the text and the type of information required to distinguish between authors.
-
-In particular, the experiments suggest that:
-
-* **LUAR can provide an advantage when stylistic information is particularly important.**
-* **SBERT can perform well when semantic information contributes strongly to distinguishing the paragraphs.**
-* **Fine-tuning can improve the representations for the specific author-change detection task compared with keeping them frozen.**
-* The effectiveness of **cosine similarity versus a learned classification head** depends on the representation model and experimental setting.
-
-Detailed results can be found in the Excel files under `src/evaluation/`.
-
----
-
 ## Repository Structure
 
 The repository is organized around the complete experimental pipeline, from dataset loading and representation generation to model training and final evaluation.
@@ -212,7 +125,7 @@ The repository is organized around the complete experimental pipeline, from data
 ### Project Tree
 
 ```text
-LUAR-classhead/
+Author Style Change Detection/
 │
 ├── src/
 │   │
@@ -389,6 +302,45 @@ The remaining source files provide functionality used throughout the pipeline:
 * `src/fabricator.py` — auxiliary processing of generated solution files.
 * `src/evaluation/helper.py` — supporting functionality for result evaluation and analysis.
 
+---
+
+## Experimental Analysis
+
+The experiments investigate the impact of:
+
+### LUAR vs. SBERT
+
+The two representation approaches are compared to determine how effectively they capture information relevant to author changes.
+
+### Frozen vs. Fine-Tuned Representations
+
+The experiments compare using pretrained representations without modification against allowing the representation model to adapt to the author-change detection task.
+
+### Cosine Similarity vs. Classification Head
+
+Two different approaches are evaluated for determining whether an author transition has occurred:
+
+1. **Cosine similarity** between paragraph representations.
+2. **Concatenation of representations followed by a classification head.**
+
+This allows the thesis to examine both similarity-based and learned classification approaches.
+
+---
+
+## Results
+
+The experimental results are included in the repository as Excel spreadsheets.
+
+The main conclusions of the experiments indicate that model performance depends on the characteristics of the text and the type of information required to distinguish between authors.
+
+In particular, the experiments suggest that:
+
+* **LUAR can provide an advantage when stylistic information is particularly important.**
+* **SBERT can be advantageous in cases where semantic information contributes strongly to distinguishing between paragraphs.**
+* **Fine-tuned representations generally performed better than their frozen counterparts in the evaluated experimental settings**
+* The effectiveness of **cosine similarity versus a learned classification head** depends on the representation model and experimental setting.
+
+Detailed results can be found in the Excel files under `src/evaluation/`.
 
 ## Reproducibility
 
