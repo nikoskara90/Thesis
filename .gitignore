@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment / local configuration
+.env
+file_config.ini
+
+# Logs and generated outputs
+logs/
+output/
+output_json/
+*.log
+output.zip
+
+# Data and pretrained models
+data/
+pretrained_weights/
+
+# Legacy / unused dataset implementations
+src/datasets/amazon_dataset.py
+src/datasets/pan20_dataset.py
+src/datasets/pan20_pairs_dataset.py
+src/datasets/pan21_pairs_dataset.py
+src/datasets/pan22_pairs_dataset.py
+src/datasets/pan23_pairs_dataset.py
+src/datasets/pan24_pairs_dataset.py
+src/datasets/reddit_dataset.py
+src/datasets/retrieval_dataset.py
+src/datasets/short_stories_dataset.py
+
+# Python tooling / caches
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.pytype/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+
+# Jupyter
+.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local / unrelated project files
+fewshot_iclr2024/
+machine_detection/
+scripts/
+sync.ffs_db
+vluar/
+
+# Evaluation intermediate files
+src/evaluation/*.prototext
+
+# Docker
+Dockerfile
